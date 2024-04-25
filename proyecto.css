@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lunasima', sans-serif;
+    text-decoration: none;
+}
+
+/*Header*/
+
+header{
+    height: 95px;
+    min-height: 110px;
+}
+
+.fondoHeader{
+    background-color: #70d0df;
+}
+
+.logo{
+    width: 220px;
+}
+
+/*Login*/
