@@ -1,0 +1,10 @@
+
+
+- Elicitacion de requisitos
+- Revisar proyecto 
+- Transversales
+- Git and Github
+- Tecnologias del proyecto
+- MYSQL SERVER
+
+
