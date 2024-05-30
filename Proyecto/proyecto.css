@@ -8,6 +8,7 @@
 
 /*Header*/
 
+
 header{
     height: 95px;
     min-height: 110px;
@@ -17,8 +18,26 @@ header{
     background-color: #70d0df;
 }
 
+.logocar{
+    height: 1.25rem;
+}
+
+#cuenta-carrito {
+    background-color: brown;
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+    line-height: 1.25rem;
+    aspect-ratio: 1;
+    text-align: center;
+}
+
+
+
 .logo{
     width: 220px;
 }
 
 /*Login*/
+
+
