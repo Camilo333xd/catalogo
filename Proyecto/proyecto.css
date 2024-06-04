@@ -38,6 +38,14 @@ header{
     width: 220px;
 }
 
+.Titulo {
+    text-align: center;
+    color: black;
+    margin: 25px auto 25px auto;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
 /*Login*/
 
 

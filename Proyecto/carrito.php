@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="petshop" content="pet products and services">
   <title>Pet stylo</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="Bootstrap/bootstrap.min.css.map">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="proyecto.css">
@@ -15,11 +15,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <style>
-    body {
-      background-image: url(Pictures/fondo.jpg);
-    }
+    <style>
+      .product-info {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+      }
+      .product-info img {
+          max-width: 100px; /* Establece el ancho máximo de la imagen */
+          height: auto; /* Ajusta automáticamente la altura de la imagen */
+      }
   </style>
+  
 </head>
 
 <body>
@@ -54,13 +61,18 @@
           </li>
         </ul>
         <div style="display: flex;align-items: center;gap: 20px;">
-          <a href=""><img src="Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar"><span id="cuenta-carrito"> 0</span></a>
           <a class="d-flex ms-auto" href="">Inicia sesion</a>
         </div>
       </div>
     </div>
   </header>
-  <script src="pet.js"></script>
+  <h1>Carrito de Compras</h1>
+    <div id="cart" class="container">
+        <p>El carrito está vacío.</p>
+    </div>
+    <a href="catalogo.php">Volver al Catálogo</a>
+
+    <script src="carrito.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="petshop" content="pet products and services">
   <title>Pet stylo</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="proyecto.css">
@@ -21,7 +20,6 @@
     }
   </style>
 </head>
-
 <body>
   <header class="navbar navbar-expand-sm fondoHeader">
     <div class="container-fluid">
@@ -54,7 +52,7 @@
           </li>
         </ul>
         <div style="display: flex;align-items: center;gap: 20px;">
-          <a href="cart.html"><img src="Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar"><span id="cuenta-carrito"> 0</span></a>
+          <a href="carrito.php"><img src="Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar"><span id="cuenta-carrito"> 0</span></a>
           <a class="d-flex ms-auto" href="">Inicia sesion</a>
         </div>
       </div>
@@ -118,11 +116,11 @@
       <div class="container container-sm px-5" style="background-color: rgba(112,208,223,255);margin-top:20px;">
         <div class="row">
           <div class="col-12">
-            <h2 style="text-align: center; color: black;">Catalogo Pet Stylo</h2>
+            <h2 class="Titulo" >Catalogo Pet Stylo</h2>
           </div>
         </div>
-        <div class="row g-5 container mx-auto text-center";>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12";>
+        <div class="row g-5 container mx-auto text-center product">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/shampoo.jpg" class="card-img-top" alt="Shampoo"
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -130,11 +128,14 @@
                 <h5 class="card-title">Shampoo petys</h5>
                 <p class="card-text">Frasco de shampoo familia perros y gatos 235 ml.</p>
                 <p class="card-text">PRECIO: 21.000</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <?php
+                include("mostrar.php")
+                ?>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/REPELENTE.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -142,11 +143,14 @@
                 <h5 class="card-title">Repelente de pulgas petys</h5>
                 <p class="card-text">Spray Repelente de Pulgas para Perros Petys de 180 ml.</p>
                 <p class="card-text">PRECIO: 16.700</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <?php
+                include("mostrar.php")
+                ?>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/mirringo_adulto.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -154,11 +158,14 @@
                 <h5 class="card-title">Comida mirringo adulto</h5>
                 <p class="card-text">Comida para gato mirringo adultos. Bulto de 1kg</p>
                 <p class="card-text">PRECIO: 16.700</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <?php
+                include("mostrar.php")
+                ?>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/peinilla.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -166,11 +173,14 @@
                 <h5 class="card-title">Peinilla dientes medianos</h5>
                 <p class="card-text">Peinilla para pelo de mascotas mango morado.</p>
                 <p class="card-text">PRECIO: 12.600</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <?php
+                include("mostrar.php")
+                ?>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/eliminadordeolorres.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -178,11 +188,11 @@
                 <h5 class="card-title">Eliminador de olores petys</h5>
                 <p class="card-text">Spray marca familia para malos olores de 50ml </p>
                 <p class="card-text">PRECIO: 5.600</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/Redes/shampoo 2.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -190,11 +200,11 @@
                 <h5 class="card-title">Frasco shampoo burby</h5>
                 <p class="card-text">Shampoo para perros en presentacion de 200 ml.</p>
                 <p class="card-text">PRECIO: 24.800</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/pala_arenera.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -202,11 +212,11 @@
                 <h5 class="card-title">Pala arenera</h5>
                 <p class="card-text">pala para mantener limpia la arenera de tu gato.</p>
                 <p class="card-text">PRECIO: 9.900</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/comidaenlatada_perro.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -214,11 +224,11 @@
                 <h5 class="card-title">Lata de comida</h5>
                 <p class="card-text">comida enlatada para perro hills cuidado digestivo.</p>
                 <p class="card-text">PRECIO: 29.300</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/perone_ahumado.png" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -226,11 +236,11 @@
                 <h5 class="card-title">Perone ahumado</h5>
                 <p class="card-text">Hueso natural deshidratado de res o cerdo sabor ahumado</p>
                 <p class="card-text">PRECIO: 24.000</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/patica_cerdoblanco.png" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -238,11 +248,11 @@
                 <h5 class="card-title">Patica cerdo blanco</h5>
                 <p class="card-text">Hueso natural deshidratado de res o cerdo sabor natural blanco.</p>
                 <p class="card-text">PRECIO: 13.000</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/snacks_cabanos.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -250,11 +260,11 @@
                 <h5 class="card-title">snacks cabanos</h5>
                 <p class="card-text">Ricos bocadillos masticables para perros con diferntes colores.</p>
                 <p class="card-text">PRECIO: 2.700</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/cama_descanso.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -262,11 +272,11 @@
                 <h5 class="card-title">Cama relax</h5>
                 <p class="card-text">Cama de relajacion para mascotas de alta calidad de microfibra.</p>
                 <p class="card-text">PRECIO: 140.000</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/ratones.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -274,11 +284,11 @@
                 <h5 class="card-title">Ratones x2 para gato</h5>
                 <p class="card-text">Ratones de juguete hechos de cuerda para entretener a tu felino y super resistentes.</p>
                 <p class="card-text">PRECIO: 16.700</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/correa_perroazul.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -286,11 +296,11 @@
                 <h5 class="card-title">Correa sport cocos</h5>
                 <p class="card-text"> fabricado en herrajes metálicos y le da un toque de color a los paseos de tu peludo.</p>
                 <p class="card-text">PRECIO: 35.000</p>
-                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                <button href="#" class="btn btn-primary add-to-cart">Añadir al carrito</button>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
               <img src="Pictures/removedor_pelos.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
@@ -298,7 +308,7 @@
                 <h5 class="card-title">Removedor de pelos</h5>
                 <p class="card-text">Removedor de pelos y pelusas para mantener la casa limpia y libre de pelo de la mascota</p>
                 <p class="card-text">PRECIO: 36.200</p>
-                <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                <button href="#" class="btn btn-primary add-to-cart">Ir a algún lugar</button>
               </div>
             </div>
           </div>
@@ -306,7 +316,7 @@
       </div>
   </section>
 
-  <script src="pet.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
