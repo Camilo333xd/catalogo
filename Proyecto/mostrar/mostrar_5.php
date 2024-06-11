@@ -2,11 +2,11 @@
 
 $inc = include("conexion.php");
 if ($inc){
-    $consulta = "SELECT cantidad FROM producto where IDproducto= 1 ";
+    $consulta = "SELECT Cantidad FROM Productos where ID_Producto= 5 ";
     $resultado = mysqli_query($conn,$consulta);
     if ($resultado) {
         while($row = $resultado -> fetch_array()){
-            $cantidad = $row['cantidad'];
+            $cantidad = $row['Cantidad'];
             ?>
             <div>
                 <p>
@@ -17,5 +17,6 @@ if ($inc){
         }
     }
 }
+
 
 ?>

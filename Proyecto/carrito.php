@@ -1,3 +1,40 @@
+<?php
+session_start();
+
+// Obtener el carrito desde la sesión o inicializarlo si está vacío
+$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+// Función para actualizar el contenido del carrito en HTML
+function updateCart($cart) {
+    $cartHtml = '<div id="cart" class="container">';
+    if (empty($cart)) {
+        $cartHtml .= '<p>El carrito está vacío.</p>';
+    } else {
+        foreach ($cart as $index => $product) {
+            $cartHtml .= '<div class="cart-item">';
+            $cartHtml .= '<div class="product-info">';
+            $cartHtml .= '<img src="' . $product['image'] . '" alt="' . $product['name'] . '">';
+            $cartHtml .= '<div>';
+            $cartHtml .= '<h2>' . $product['name'] . '</h2>';
+            $cartHtml .= '<p>' . $product['description'] . '</p>';
+            $cartHtml .= '<p>Cantidad: ' . $product['quantity'] . '</p>';
+            $cartHtml .= '<form action="remove_from_cart.php" method="POST">';
+            $cartHtml .= '<input type="hidden" name="index" value="' . $index . '">';
+            $cartHtml .= '<button type="submit" class="btn btn-danger">Eliminar</button>';
+            $cartHtml .= '</form>';
+            $cartHtml .= '</div>';
+            $cartHtml .= '</div>';
+            $cartHtml .= '</div>';
+        }
+    }
+    $cartHtml .= '</div>';
+    return $cartHtml;
+}
+
+// Actualizar el contenido del carrito en HTML
+$cartContent = updateCart($cart);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,13 +103,12 @@
       </div>
     </div>
   </header>
-  <h1>Carrito de Compras</h1>
-    <div id="cart" class="container">
-        <p>El carrito está vacío.</p>
-    </div>
+  <h1>Carrito de Reservas</h1>
+    <!-- Aquí mostramos el contenido del carrito -->
+    <?php echo $cartContent; ?>
     <a href="catalogo.php">Volver al Catálogo</a>
 
-    <script src="carrito.js"></script>
+    <script src=""></script>
 </body>
 
 </html>
