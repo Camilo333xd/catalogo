@@ -1,0 +1,28 @@
+.titulo{
+    text-align: center;
+    margin-top: 3.25rem;
+}
+
+.container {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box {
+    width: 200px;
+    padding: 20px;
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.add {
+    background-color: #28a745;
+}
+.update {
+    background-color: #ffc107;
+}
+.delete {
+    background-color: #dc3545;
+}

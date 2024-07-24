@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'image' => $_POST['image']
     ];
 
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = [];
-    }
+    // if (!isset($_SESSION['cart'])) {
+    //     $_SESSION['cart'] = [];
+    // }
 
     // Comprobar si el producto ya está en el carrito
     $found = false;

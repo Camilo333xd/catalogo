@@ -1,50 +1,30 @@
 <?php
 session_start();
+require_once "";
 
-require_once "funcion.php";
-
-// Obtener el carrito desde la sesión o inicializarlo si está vacío
-$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-
-
-// Actualizar el contenido del carrito en HTML
-$cartContent = updateCart($cart);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="petshop" content="pet products and services">
-  <title>Pet stylo</title>
-  <link rel="stylesheet" href="Bootstrap/bootstrap.min.css.map">
+  <title>Gestionar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="proyecto.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-      .product-info {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-      }
-      .product-info img {
-          max-width: 100px; /* Establece el ancho máximo de la imagen */
-          height: auto; /* Ajusta automáticamente la altura de la imagen */
-      }
-  </style>
-  
-</head>
 
+    <link rel="stylesheet" href="gestionar.css">
+    <link rel="stylesheet" href="proyecto.css">
+
+</head>
 <body>
-  <header class="navbar navbar-expand-sm fondoHeader">
+<header class="navbar navbar-expand-sm fondoHeader">
     <div class="container-fluid">
       <!--Icono-->
       <a class="navbar-brand" href="#">
@@ -75,29 +55,22 @@ $cartContent = updateCart($cart);
           </li>
         </ul>
         <div style="display: flex;align-items: center;gap: 20px;">
-          <a class="d-flex ms-auto" href="">Inicia sesion</a>
+        <a href="carrito.php">
+          <img src="Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar">
+        </a>
+        <a class="d-flex ms-auto" href="">Inicia sesion</a>
         </div>
       </div>
     </div>
   </header>
-  <h1>Carrito de Reservas</h1>
-    <!-- Aquí mostramos el contenido del carrito -->
-    <?php echo updateCart($cart); ?>
-    <a href="catalogo.php">Volver al Catálogo</a>
 
-    <!-- <script>
-    $("#enviar").click(function(){
-    $.ajax({
-        url: "funcion.php",
-        type: "post",
-        data: $("#formulario").serialize(),
-        success: function (resultado){
-            $("#updateCart").html(resultado);
-        }
-    })
-    
-    })
-</script> -->
+  <h1 class="titulo">GESTION DE PRODUCTOS</h1>
+  
+    <div class="container">
+        <div class="box add">Agregar producto</div>
+        <div class="box update">Actualizar producto</div>
+        <div class="box delete">Eliminar producto</div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -3,6 +3,7 @@ session_start();
 
 // Obtener el número de productos en el carrito
 $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
+
 ?>
 
 <!DOCTYPE html>
