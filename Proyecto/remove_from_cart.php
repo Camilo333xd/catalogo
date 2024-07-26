@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['index'])) {
             // Disminuye la cantidad en 1
             $_SESSION['cart'][$index]['quantity']--;
         } else {
-            // Elimina el producto si la cantidad llega a 0
+      
             array_splice($_SESSION['cart'], $index, 1);
         }
         
