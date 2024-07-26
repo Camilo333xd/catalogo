@@ -6,7 +6,7 @@ require_once "funcion.php";
 // Obtener el carrito desde la sesión o inicializarlo si está vacío
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
-// Actualizar el contenido del carrito en HTML
+
 $cartContent = updateCart($cart);
 ?>
 
@@ -84,33 +84,6 @@ $cartContent = updateCart($cart);
     </div>
     <a href="catalogo.php">Volver al Catálogo</a>
     <script src="cart.js"></script>
-
-  <!-- Script para manejo de AJAX -->
-  <!-- <script>
-    $(document).ready(function() {
-      // Manejar el evento de eliminación de producto
-      $('#cart').on('submit', 'form', function(event) {
-        event.preventDefault(); // Prevenir la acción por defecto del formulario
-
-        var form = $(this); // Referencia al formulario actual
-        var url = form.attr('action'); // Obtener la URL del formulario
-        var data = form.serialize(); // Serializar los datos del formulario
-
-        $.ajax({
-          url: url, // La URL del script PHP que procesa los datos
-          type: 'POST', // El método de la solicitud
-          data: data, // Los datos del formulario
-          success: function(response) {
-            // Actualizar el contenido del carrito
-            $('#cart').html(response);
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-            console.log('Error en la solicitud AJAX:', textStatus, errorThrown);
-          }
-        });
-      });
-    });
-  </script> -->
 </body>
 
 </html>
