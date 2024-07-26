@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cart'][] = $product;
     }
 
-    // Actualizar el contador del carrito
+   
     $_SESSION['cart_count'] = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] + 1 : 1;
 
-    // Devolver la respuesta en formato JSON
+   
     echo json_encode(['cart_count' => $_SESSION['cart_count']]);
 }
 ?>
