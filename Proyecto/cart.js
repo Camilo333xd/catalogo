@@ -5,15 +5,14 @@ $(document).ready(function() {
       event.preventDefault(); // Prevenir la acción por defecto del formulario
   
       var form = $(this); // Referencia al formulario actual
-      var url = form.attr('action'); // Obtener la URL del formulario
-      var data = form.serialize(); // Serializar los datos del formulario
+      var url = form.attr('action'); 
+      var data = form.serialize(); 
   
       $.ajax({
-        url: url, // La URL del script PHP que procesa los datos
-        type: 'POST', // El método de la solicitud
-        data: data, // Los datos del formulario
+        url: url,
+        type: 'POST', 
+        data: data, 
         success: function(response) {
-          // Actualizar el contenido del carrito
           $('#cart').html(response);
         },
         error: function(jqXHR, textStatus, errorThrown) {
