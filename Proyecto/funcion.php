@@ -19,12 +19,22 @@ function updateCart($cart) {
             $cartHtml .= '</form>';
             $cartHtml .= '</div>';
             $cartHtml .= '</div>';
-            $cartHtml .= '</div>';
+            $cartHtml .= '</div><br>';
         }
     }
+    // $cartHtml .= '<div><br>';
+    if (count($cart) > 0) {     
+    $cartHtml .= '<form action="guardar_pedido.php" method="POST">';
+    $cartHtml .= '<input type="hidden" name="guardar_productos" value="1">'; // Valor oculto para identificar la acción
+    $cartHtml .= '<button type="submit" class="btn btn-primary">Guardar Productos</button>';
+    $cartHtml .= '</form>';
+    }
+    // $cartHtml .= '</div>';
+
+
     $cartHtml .= '</div>';
+
     return $cartHtml;
 }
-
-
 ?>
+

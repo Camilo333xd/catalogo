@@ -7,8 +7,8 @@ require_once "funcion.php";
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
 
-// Actualizar el contenido del carrito en HTML
 $cartContent = updateCart($cart);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,6 @@ $cartContent = updateCart($cart);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="petshop" content="pet products and services">
   <title>Pet stylo</title>
-  <link rel="stylesheet" href="Bootstrap/bootstrap.min.css.map">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="proyecto.css">
@@ -28,19 +27,18 @@ $cartContent = updateCart($cart);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-      .product-info {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-      }
-      .product-info img {
-          max-width: 100px; /* Establece el ancho máximo de la imagen */
-          height: auto; /* Ajusta automáticamente la altura de la imagen */
-      }
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    .product-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .product-info img {
+        max-width: 100px;
+        height: auto;
+    }
   </style>
-  
 </head>
 
 <body>
@@ -82,22 +80,12 @@ $cartContent = updateCart($cart);
   </header>
   <h1>Carrito de Reservas</h1>
     <!-- Aquí mostramos el contenido del carrito -->
-    <?php echo updateCart($cart); ?>
-    <a href="catalogo.php">Volver al Catálogo</a>
-
-    <!-- <script>
-    $("#enviar").click(function(){
-    $.ajax({
-        url: "funcion.php",
-        type: "post",
-        data: $("#formulario").serialize(),
-        success: function (resultado){
-            $("#updateCart").html(resultado);
-        }
-    })
-    
-    })
-</script> -->
+    <div id="cart">
+      <?php echo $cartContent; ?>
+    </div>
+  
+  <a href="catalogo.php">Volver al Catálogo</a>
+    <script src="cart.js"></script>
 </body>
 
 </html>

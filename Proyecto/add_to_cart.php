@@ -9,12 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'image' => $_POST['image']
     ];
 
-    // if (!isset($_SESSION['cart'])) {
-    //     $_SESSION['cart'] = [];
-    // }
-
-    // Comprobar si el producto ya está en el carrito
     $found = false;
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    
     foreach ($_SESSION['cart'] as &$item) {
         if ($item['name'] == $product['name']) {
             $item['quantity']++;
@@ -28,11 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cart'][] = $product;
     }
 
-    // Actualizar el contador del carrito
+   
     $_SESSION['cart_count'] = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] + 1 : 1;
 
-    // Redirigir de vuelta al catálogo
-    header('Location: catalogo.php');
-    exit();
+   
+    echo json_encode(['cart_count' => $_SESSION['cart_count']]);
 }
 ?>
