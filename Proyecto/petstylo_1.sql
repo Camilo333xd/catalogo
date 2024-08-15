@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2024 at 12:17 AM
+-- Generation Time: Jun 12, 2024 at 12:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,18 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `petstylo_1`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pedidos`
---
-
-CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `productos` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -92,12 +80,6 @@ INSERT INTO `tipoproductos` (`Tipo`, `Descripcion`) VALUES
 --
 
 --
--- Indexes for table `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `productos`
 --
 ALTER TABLE `productos`
@@ -113,12 +95,6 @@ ALTER TABLE `tipoproductos`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `productos`

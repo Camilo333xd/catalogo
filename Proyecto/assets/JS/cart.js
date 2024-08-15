@@ -1,4 +1,3 @@
-// cart.js
 $(document).ready(function() {
     // Manejar el evento de eliminación de producto
     $('#cart').on('submit', 'form', function(event) {
@@ -9,7 +8,7 @@ $(document).ready(function() {
       var data = form.serialize(); 
   
       $.ajax({
-        url: url,
+        url: url ,
         type: 'POST', 
         data: data, 
         success: function(response) {

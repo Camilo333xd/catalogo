@@ -3,7 +3,6 @@ session_start();
 
 // Obtener el número de productos en el carrito
 $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
   <title>Pet stylo</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="proyecto.css">
+  <link rel="stylesheet" href="../assets/CSS/proyecto.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -35,7 +34,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
     <div class="container-fluid">
       <!--Icono-->
       <a class="navbar-brand" href="#">
-        <img class="logo" src="Pictures/logo sin fondo.png" alt="">
+        <img class="logo" src="assets/Pictures/logo sin fondo.png" alt="">
       </a>
       <!--Icono menu-->
       <button style="background-color: #ee8133;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -62,8 +61,8 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </li>
         </ul>
         <div style="display: flex;align-items: center;gap: 20px;">
-  <a href="carrito.php">
-    <img src="Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar">
+  <a href="../carrito.php">
+    <img src="../assets/Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar">
     <span id="cuenta-carrito"><?php echo $cartCount; ?></span>
   </a>
   <a class="d-flex ms-auto" href="">Inicia sesion</a>
@@ -87,7 +86,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="Pictures/IMGP7944.avif" class="d-block w-100" alt="Juguetes para mascotas"
+                <img src="../assets/Pictures/IMGP7944.avif" class="d-block w-100" alt="Juguetes para mascotas"
                   style="width: 100%; height: 300px;">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Juguetes para mascotas</h5>
@@ -95,7 +94,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="Pictures/productos-para-mascotas.jpg" class="d-block w-100" alt="Accesorios para mascotas"
+                <img src="../assets/Pictures/productos-para-mascotas.jpg" class="d-block w-100" alt="Accesorios para mascotas"
                   style="width: 100%; height: 300px;">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Accesorios para la casa</h5>
@@ -103,7 +102,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="Pictures/fotolia_131689630.jpg" class="d-block w-100" alt="Higiene de mascotas"
+                <img src="../assets/Pictures/fotolia_131689630.jpg" class="d-block w-100" alt="Higiene de mascotas"
                   style="width: 100%; height: 300px;">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Productos de aseo</h5>
@@ -135,21 +134,21 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
         <div class="row g-5 container mx-auto text-center product">
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/shampoo.jpg" class="card-img-top" alt="Shampoo"
+              <img src="../assets/Pictures/shampoo.jpg" class="card-img-top" alt="Shampoo"
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Shampoo petys</h5>
                 <p class="card-text">Frasco de shampoo familia perros y gatos 235 ml.</p>
                 <p class="card-text">PRECIO: 21.000</p>
                 <?php
-                include("mostrar/mostrar_1.php")
+                include("../mostrar/mostrar_1.php")
                 ?>
                 <!-- <form action="add_to_cart.php" method="POST"> -->
                 <form class="productForm">
                   <input type="hidden" name="name" value="Shampoo Petys">
                   <input type="hidden" name="description" value="Frasco de shampoo familia perros y gatos 235 ml.">
                   <input type="hidden" name="price" value="21.000">
-                  <input type="hidden" name="image" value="Pictures/shampoo.jpg">
+                  <input type="hidden" name="image" value="assets/Pictures/shampoo.jpg">
                   <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                  </form> 
               </div>
@@ -157,20 +156,20 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/REPELENTE.jpg" class="card-img-top" alt="..."
+              <img src="../assets/Pictures/REPELENTE.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Repelente de pulgas petys</h5>
                 <p class="card-text">Spray Repelente de Pulgas para Perros Petys de 180 ml.</p>
                 <p class="card-text">PRECIO: 16.700</p>
                 <?php
-                include("mostrar/mostrar_2.php")
+                include("../mostrar/mostrar_2.php")
                 ?>
               <form class="productForm">
                 <input type="hidden" name="name" value="Repelente de pulgas petys">
                 <input type="hidden" name="description" value="Spray Repelente de Pulgas para Perros Petys de 180 ml">
                 <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="Pictures/REPELENTE.jpg">
+                <input type="hidden" name="image" value="assets/Pictures/REPELENTE.jpg">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
               </form>             
              </div>
@@ -178,7 +177,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/mirringo_adulto.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/mirringo_adulto.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Comida mirringo adulto</h5>
@@ -191,7 +190,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Comida mirringo adulto">
                 <input type="hidden" name="description" value="Comida para gato mirringo adultos. Bulto de 1kg">
                 <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="Pictures/mirringo_adulto.webp">
+                <input type="hidden" name="image" value="assets/Pictures/mirringo_adulto.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -199,7 +198,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/peinilla.jpg" class="card-img-top" alt="..."
+              <img src="assets/Pictures/peinilla.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Peinilla dientes medianos</h5>
@@ -212,7 +211,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Peinilla dientes medianos">
                 <input type="hidden" name="description" value="Peinilla para pelo de mascotas mango morado.">
                 <input type="hidden" name="price" value="12.600">
-                <input type="hidden" name="image" value="Pictures/peinilla.jpg">
+                <input type="hidden" name="image" value="assets/Pictures/peinilla.jpg">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -220,7 +219,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/eliminadordeolorres.jpg" class="card-img-top" alt="..."
+              <img src="assets/Pictures/eliminadordeolorres.jpg" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Eliminador de olores petys</h5>
@@ -233,7 +232,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Eliminador de olores petys">
                 <input type="hidden" name="description" value="Spray marca familia para malos olores de 50ml">
                 <input type="hidden" name="price" value="5.600">
-                <input type="hidden" name="image" value="Pictures/eliminadordeolorres.jpg">
+                <input type="hidden" name="image" value="assets/Pictures/eliminadordeolorres.jpg">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -241,7 +240,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/Redes/shampoo 2.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/Redes/shampoo 2.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Frasco shampoo burby</h5>
@@ -254,7 +253,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Frasco shampoo burby">
                 <input type="hidden" name="description" value="Shampoo para perros en presentacion de 200 ml.">
                 <input type="hidden" name="price" value="24.800">
-                <input type="hidden" name="image" value="Pictures/Redes/shampoo 2.webp">
+                <input type="hidden" name="image" value="assets/Pictures/Redes/shampoo 2.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -262,7 +261,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/pala_arenera.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/pala_arenera.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Pala arenera</h5>
@@ -275,7 +274,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Pala arenera">
                 <input type="hidden" name="description" value="pala para mantener limpia la arenera de tu gato.">
                 <input type="hidden" name="price" value="9.900">
-                <input type="hidden" name="image" value="Pictures/pala_arenera.webp">
+                <input type="hidden" name="image" value="assets/Pictures/pala_arenera.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -283,7 +282,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/comidaenlatada_perro.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/comidaenlatada_perro.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Lata de comida</h5>
@@ -296,7 +295,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Lata de comida">
                 <input type="hidden" name="description" value="comida enlatada para perro hills cuidado digestivo..">
                 <input type="hidden" name="price" value="29.300">
-                <input type="hidden" name="image" value="Pictures/comidaenlatada_perro.webp">
+                <input type="hidden" name="image" value="assets/Pictures/comidaenlatada_perro.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -304,7 +303,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/perone_ahumado.png" class="card-img-top" alt="..."
+              <img src="assets/Pictures/perone_ahumado.png" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Perone ahumado</h5>
@@ -317,7 +316,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Perone ahumado">
                 <input type="hidden" name="description" value="Hueso natural deshidratado de res o cerdo sabor ahumado">
                 <input type="hidden" name="price" value="24.000">
-                <input type="hidden" name="image" value="Pictures/perone_ahumado.png">
+                <input type="hidden" name="image" value="assets/Pictures/perone_ahumado.png">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -325,7 +324,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/patica_cerdoblanco.png" class="card-img-top" alt="..."
+              <img src="assets/Pictures/patica_cerdoblanco.png" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Patica cerdo blanco</h5>
@@ -338,7 +337,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Patica cerdo blanco">
                 <input type="hidden" name="description" value="Hueso natural deshidratado de res o cerdo sabor natural blanco.">
                 <input type="hidden" name="price" value="13.000">
-                <input type="hidden" name="image" value="Pictures/patica_cerdoblanco.png">
+                <input type="hidden" name="image" value="assets/Pictures/patica_cerdoblanco.png">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -346,7 +345,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/snacks_cabanos.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/snacks_cabanos.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">snacks cabanos</h5>
@@ -359,7 +358,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="snacks cabanos">
                 <input type="hidden" name="description" value="Ricos bocadillos masticables para perros con diferntes colores.">
                 <input type="hidden" name="price" value="2.700">
-                <input type="hidden" name="image" value="Pictures/snacks_cabanos.webp">
+                <input type="hidden" name="image" value="assets/Pictures/snacks_cabanos.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -367,7 +366,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/cama_descanso.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/cama_descanso.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Cama relax</h5>
@@ -380,7 +379,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Cama relax">
                 <input type="hidden" name="description" value="Cama de relajacion para mascotas de alta calidad de microfibra.">
                 <input type="hidden" name="price" value="140.000">
-                <input type="hidden" name="image" value="Pictures/cama_descanso.webp">
+                <input type="hidden" name="image" value="assets/Pictures/cama_descanso.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -388,7 +387,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/ratones.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/ratones.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Ratones x2 para gato</h5>
@@ -401,7 +400,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Ratones x2 para gato">
                 <input type="hidden" name="description" value="Ratones de juguete hechos de cuerda para entretener a tu felino y super resistentes.">
                 <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="Pictures/ratones.webp">
+                <input type="hidden" name="image" value="assets/Pictures/ratones.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -409,7 +408,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/correa_perroazul.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/correa_perroazul.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Correa sport cocos</h5>
@@ -422,7 +421,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <input type="hidden" name="name" value="Correa sport cocos">
                 <input type="hidden" name="description" value="fabricado en herrajes metálicos y le da un toque de color a los paseos de tu peludo.">
                 <input type="hidden" name="price" value="35.000">
-                <input type="hidden" name="image" value="Pictures/correa_perroazul.webp">
+                <input type="hidden" name="image" value="assets/Pictures/correa_perroazul.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -430,7 +429,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
             <div class="card" style="width: 18rem; margin:auto;">
-              <img src="Pictures/removedor_pelos.webp" class="card-img-top" alt="..."
+              <img src="assets/Pictures/removedor_pelos.webp" class="card-img-top" alt="..."
                 style="height: 200px; width: 60%; margin: 0px auto;">
               <div class="card-body" style="background-color: #ee8133;">
                 <h5 class="card-title">Removedor de pelos</h5>
@@ -439,11 +438,11 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
                 <?php
                 include("mostrar/mostrar_15.php")
                 ?>
-                <form     class="productForm">
+                <form  class="productForm">
                 <input type="hidden" name="name" value="Removedor de pelos">
                 <input type="hidden" name="description" value="Removedor de pelos y pelusas para mantener la casa limpia y libre de pelo de la mascota.">
                 <input type="hidden" name="price" value="36.20">
-                <input type="hidden" name="image" value="Pictures/removedor_pelos.webp">
+                <input type="hidden" name="image" value="assets/Pictures/removedor_pelos.webp">
                 <button type="submit" class="btn btn-primary">Añadir al carrito</button>
                 </form> 
               </div>
@@ -453,7 +452,9 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
       </div>
   </section>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   <script src="script.js"></script>
-
+   <script src="../assets/JS/script.js"></script>
+   <!-- <?php
+  //  session_destroy();
+   ?> -->
 </body>
 </html>

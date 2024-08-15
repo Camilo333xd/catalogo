@@ -1,6 +1,6 @@
 <?php
 
-$inc = include("conexion.php");
+$inc = include("models/conexion.php");
 if ($inc){
     $consulta = "SELECT Cantidad FROM Productos where ID_Producto= 3 ";
     $resultado = mysqli_query($conn,$consulta);

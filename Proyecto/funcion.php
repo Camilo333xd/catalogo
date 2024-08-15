@@ -1,5 +1,4 @@
 <?php
-
 function updateCart($cart) {
     $cartHtml = '<div id="cart" class="container">';
     if (empty($cart)) {
