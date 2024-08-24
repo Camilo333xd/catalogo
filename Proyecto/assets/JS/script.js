@@ -3,7 +3,7 @@ $(document).ready(function(){
       event.preventDefault();  // evita que se envie el foprmulario y recargue la pag
       
       $.ajax({
-        url: '../add_to_cart.php',  //
+        url: '../index.php?controller=catalogo&action=AñadirCarrito',  //
         type: 'POST',  // 
         data: $(this).serialize(),  // Serializar datos
         success: function(response){
@@ -19,3 +19,5 @@ $(document).ready(function(){
       });
     });
   });
+
+  

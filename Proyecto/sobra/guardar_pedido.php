@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar_productos']))
             $_SESSION['cart_count'] = 0; // Resetear el contador de productos del carrito
 
             // Redirigir de nuevo al carrito para recargar la página
-            header('carrito.php');
+            header('views\carrito.php');
             exit();
         } else {
             echo "Error al guardar el pedido: " . $stmt->error;

@@ -3,6 +3,11 @@ session_start();
 
 // Obtener el número de productos en el carrito
 $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
+
+require_once __DIR__ . '/../models/producto.php';
+require_once __DIR__ . '/../models/conexion.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +30,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
 
   <style>
     body {
-      background-image: url(Pictures/fondo.jpg);
+      background-image: url(../assets/Pictures/fondo.jpg);
     }
   </style>
 </head>
@@ -34,7 +39,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
     <div class="container-fluid">
       <!--Icono-->
       <a class="navbar-brand" href="#">
-        <img class="logo" src="assets/Pictures/logo sin fondo.png" alt="">
+        <img class="logo" src="../assets/Pictures/logo sin fondo.png" alt="">
       </a>
       <!--Icono menu-->
       <button style="background-color: #ee8133;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -61,7 +66,7 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </li>
         </ul>
         <div style="display: flex;align-items: center;gap: 20px;">
-  <a href="../carrito.php">
+  <a href="carrito.php">
     <img src="../assets/Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar">
     <span id="cuenta-carrito"><?php echo $cartCount; ?></span>
   </a>
@@ -132,329 +137,39 @@ $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
           </div>
         </div>
         <div class="row g-5 container mx-auto text-center product">
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="../assets/Pictures/shampoo.jpg" class="card-img-top" alt="Shampoo"
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Shampoo petys</h5>
-                <p class="card-text">Frasco de shampoo familia perros y gatos 235 ml.</p>
-                <p class="card-text">PRECIO: 21.000</p>
-                <?php
-                include("../mostrar/mostrar_1.php")
-                ?>
-                <!-- <form action="add_to_cart.php" method="POST"> -->
-                <form class="productForm">
-                  <input type="hidden" name="name" value="Shampoo Petys">
-                  <input type="hidden" name="description" value="Frasco de shampoo familia perros y gatos 235 ml.">
-                  <input type="hidden" name="price" value="21.000">
-                  <input type="hidden" name="image" value="assets/Pictures/shampoo.jpg">
-                  <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                 </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="../assets/Pictures/REPELENTE.jpg" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Repelente de pulgas petys</h5>
-                <p class="card-text">Spray Repelente de Pulgas para Perros Petys de 180 ml.</p>
-                <p class="card-text">PRECIO: 16.700</p>
-                <?php
-                include("../mostrar/mostrar_2.php")
-                ?>
-              <form class="productForm">
-                <input type="hidden" name="name" value="Repelente de pulgas petys">
-                <input type="hidden" name="description" value="Spray Repelente de Pulgas para Perros Petys de 180 ml">
-                <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="assets/Pictures/REPELENTE.jpg">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-              </form>             
-             </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/mirringo_adulto.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Comida mirringo adulto</h5>
-                <p class="card-text">Comida para gato mirringo adultos. Bulto de 1kg</p>
-                <p class="card-text">PRECIO: 16.700</p>
-                <?php
-                include("mostrar/mostrar_3.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Comida mirringo adulto">
-                <input type="hidden" name="description" value="Comida para gato mirringo adultos. Bulto de 1kg">
-                <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="assets/Pictures/mirringo_adulto.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/peinilla.jpg" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Peinilla dientes medianos</h5>
-                <p class="card-text">Peinilla para pelo de mascotas mango morado.</p>
-                <p class="card-text">PRECIO: 12.600</p>
-                <?php
-                include("mostrar/mostrar_4.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Peinilla dientes medianos">
-                <input type="hidden" name="description" value="Peinilla para pelo de mascotas mango morado.">
-                <input type="hidden" name="price" value="12.600">
-                <input type="hidden" name="image" value="assets/Pictures/peinilla.jpg">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/eliminadordeolorres.jpg" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Eliminador de olores petys</h5>
-                <p class="card-text">Spray marca familia para malos olores de 50ml </p>
-                <p class="card-text">PRECIO: 5.600</p>
-                <?php
-                include("mostrar/mostrar_5.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Eliminador de olores petys">
-                <input type="hidden" name="description" value="Spray marca familia para malos olores de 50ml">
-                <input type="hidden" name="price" value="5.600">
-                <input type="hidden" name="image" value="assets/Pictures/eliminadordeolorres.jpg">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/Redes/shampoo 2.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Frasco shampoo burby</h5>
-                <p class="card-text">Shampoo para perros en presentacion de 200 ml.</p>
-                <p class="card-text">PRECIO: 24.800</p>
-                <?php
-                include("mostrar/mostrar_6.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Frasco shampoo burby">
-                <input type="hidden" name="description" value="Shampoo para perros en presentacion de 200 ml.">
-                <input type="hidden" name="price" value="24.800">
-                <input type="hidden" name="image" value="assets/Pictures/Redes/shampoo 2.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/pala_arenera.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Pala arenera</h5>
-                <p class="card-text">pala para mantener limpia la arenera de tu gato.</p>
-                <p class="card-text">PRECIO: 9.900</p>
-                <?php
-                include("mostrar/mostrar_7.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Pala arenera">
-                <input type="hidden" name="description" value="pala para mantener limpia la arenera de tu gato.">
-                <input type="hidden" name="price" value="9.900">
-                <input type="hidden" name="image" value="assets/Pictures/pala_arenera.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/comidaenlatada_perro.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Lata de comida</h5>
-                <p class="card-text">comida enlatada para perro hills cuidado digestivo.</p>
-                <p class="card-text">PRECIO: 29.300</p>
-                <?php
-                include("mostrar/mostrar_8.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Lata de comida">
-                <input type="hidden" name="description" value="comida enlatada para perro hills cuidado digestivo..">
-                <input type="hidden" name="price" value="29.300">
-                <input type="hidden" name="image" value="assets/Pictures/comidaenlatada_perro.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/perone_ahumado.png" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Perone ahumado</h5>
-                <p class="card-text">Hueso natural deshidratado de res o cerdo sabor ahumado</p>
-                <p class="card-text">PRECIO: 24.000</p>
-                <?php
-                include("mostrar/mostrar_9.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Perone ahumado">
-                <input type="hidden" name="description" value="Hueso natural deshidratado de res o cerdo sabor ahumado">
-                <input type="hidden" name="price" value="24.000">
-                <input type="hidden" name="image" value="assets/Pictures/perone_ahumado.png">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/patica_cerdoblanco.png" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Patica cerdo blanco</h5>
-                <p class="card-text">Hueso natural deshidratado de res o cerdo sabor natural blanco.</p>
-                <p class="card-text">PRECIO: 13.000</p>
-                <?php
-                include("mostrar/mostrar_10.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Patica cerdo blanco">
-                <input type="hidden" name="description" value="Hueso natural deshidratado de res o cerdo sabor natural blanco.">
-                <input type="hidden" name="price" value="13.000">
-                <input type="hidden" name="image" value="assets/Pictures/patica_cerdoblanco.png">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/snacks_cabanos.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">snacks cabanos</h5>
-                <p class="card-text">Ricos bocadillos masticables para perros con diferntes colores.</p>
-                <p class="card-text">PRECIO: 2.700</p>
-                <?php
-                include("mostrar/mostrar_11.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="snacks cabanos">
-                <input type="hidden" name="description" value="Ricos bocadillos masticables para perros con diferntes colores.">
-                <input type="hidden" name="price" value="2.700">
-                <input type="hidden" name="image" value="assets/Pictures/snacks_cabanos.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/cama_descanso.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Cama relax</h5>
-                <p class="card-text">Cama de relajacion para mascotas de alta calidad de microfibra.</p>
-                <p class="card-text">PRECIO: 140.000</p>
-                <?php
-                include("mostrar/mostrar_12.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Cama relax">
-                <input type="hidden" name="description" value="Cama de relajacion para mascotas de alta calidad de microfibra.">
-                <input type="hidden" name="price" value="140.000">
-                <input type="hidden" name="image" value="assets/Pictures/cama_descanso.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/ratones.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Ratones x2 para gato</h5>
-                <p class="card-text">Ratones de juguete hechos de cuerda para entretener a tu felino y super resistentes.</p>
-                <p class="card-text">PRECIO: 16.700</p>
-                <?php
-                include("mostrar/mostrar_13.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Ratones x2 para gato">
-                <input type="hidden" name="description" value="Ratones de juguete hechos de cuerda para entretener a tu felino y super resistentes.">
-                <input type="hidden" name="price" value="16.700">
-                <input type="hidden" name="image" value="assets/Pictures/ratones.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/correa_perroazul.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Correa sport cocos</h5>
-                <p class="card-text"> fabricado en herrajes metálicos y le da un toque de color a los paseos de tu peludo.</p>
-                <p class="card-text">PRECIO: 35.000</p>
-                <?php
-                include("mostrar/mostrar_14.php")
-                ?>
-                <form class="productForm">
-                <input type="hidden" name="name" value="Correa sport cocos">
-                <input type="hidden" name="description" value="fabricado en herrajes metálicos y le da un toque de color a los paseos de tu peludo.">
-                <input type="hidden" name="price" value="35.000">
-                <input type="hidden" name="image" value="assets/Pictures/correa_perroazul.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 product">
-            <div class="card" style="width: 18rem; margin:auto;">
-              <img src="assets/Pictures/removedor_pelos.webp" class="card-img-top" alt="..."
-                style="height: 200px; width: 60%; margin: 0px auto;">
-              <div class="card-body" style="background-color: #ee8133;">
-                <h5 class="card-title">Removedor de pelos</h5>
-                <p class="card-text">Removedor de pelos y pelusas para mantener la casa limpia y libre de pelo de la mascota</p>
-                <p class="card-text">PRECIO: 36.200</p>
-                <?php
-                include("mostrar/mostrar_15.php")
-                ?>
-                <form  class="productForm">
-                <input type="hidden" name="name" value="Removedor de pelos">
-                <input type="hidden" name="description" value="Removedor de pelos y pelusas para mantener la casa limpia y libre de pelo de la mascota.">
-                <input type="hidden" name="price" value="36.20">
-                <input type="hidden" name="image" value="assets/Pictures/removedor_pelos.webp">
-                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
-                </form> 
-              </div>
-            </div>
-          </div>
+        <?php
+        // $_SESSION = [];
+
+        // // Destruir la sesión
+        // session_destroy();
+        $productos = Producto::obtenerProductos($conn);
+            foreach ($productos as $producto) {
+              echo '<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="card" style="width: 18rem; margin:auto;">
+                              <img src="'. htmlspecialchars($producto['image']) .'" class="card-img-top" alt="' . htmlspecialchars($producto['Nombre_P']) . '"
+                                  style="height: 200px; width: 60%; margin: 0px auto;">
+                              <div class="card-body" style="background-color: #ee8133;">
+                                  <h5 class="card-title">' . htmlspecialchars($producto['Nombre_P']) . '</h5>
+                                  <p class="card-text">' . htmlspecialchars($producto['descripcion']) . '</p>
+                                  <p class="card-text">PRECIO: ' . htmlspecialchars($producto['Precio_P']) . '</p>
+                                  <p class="card-text"><b>Cantidad:</b> ' . htmlspecialchars($producto['Cantidad']) . '</p>
+                                  <form class="productForm">
+                                      <input type="hidden" name="name" value="' . htmlspecialchars($producto['Nombre_P']) . '">
+                                      <input type="hidden" name="description" value="' . htmlspecialchars($producto['descripcion']) . '">
+                                      <input type="hidden" name="price" value="' . htmlspecialchars($producto['Precio_P']) . '">
+                                      <input type="hidden" name="image" value="' . htmlspecialchars($producto['image']) . '">
+                                      <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+                                  </form> 
+                              </div>
+                          </div>
+                      </div>'; 
+          }     
+        // ?>
         </div>
       </div>
+    </div>
   </section>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   <script src="../assets/JS/script.js"></script>
-   <!-- <?php
-  //  session_destroy();
-   ?> -->
+   <script src="..\assets\JS\script.js"></script>
 </body>
 </html>
