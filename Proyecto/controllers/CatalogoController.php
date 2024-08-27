@@ -12,21 +12,32 @@ class CatalogoController {
                 $product = $_SESSION['cart'][$index];
         
                 if ($product['quantity'] > 1) {
-                    // Disminuye la cantidad en 1
                     $_SESSION['cart'][$index]['quantity']--;
+                    $product['quantity'] = $_SESSION['cart'][$index]['quantity']; 
+                    $action = 'reduced';
                 } else {
-                    // Elimina el producto del carrito
-                    array_splice($_SESSION['cart'],$index, 1);
+                    // esta elimina el producto del carrito
+                    array_splice($_SESSION['cart'], $index, 1);
+                    $action = 'removed';
                 }
         
-                // Actualiza el contador del carrito
                 $_SESSION['cart_count']--;
-                $response = ['status' => 'success'];
+                
+                // Respuesta con los detalles del producto y la acción realizada , recuerda , para la respueta ajax
+                $response = [
+                    'status' => 'success',
+                    'action' => $action,
+                    'product' => $product,
+                    'cart_count' => $_SESSION['cart_count']
+                ];
+            } else {
+                $response = ['status' => 'error', 'message' => 'Product not found'];
             }
+        } else {
+            $response = ['status' => 'error', 'message' => 'Invalid request'];
         }
         echo json_encode($response);       
     }
-
 
     function AñadirCarrito() {
         session_start();
@@ -66,14 +77,13 @@ class CatalogoController {
     }
 
     function ReservarProducto() {
-        session_start(); // Asegúrate de iniciar la sesión
+        session_start(); 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Obtener el carrito de la sesión
             $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         
             if (!empty($cart)) {
-                // Construir la cadena del pedido
                 $pedido = '';
                 $valorTotal = 0;
                 foreach ($cart as $product) {
@@ -81,21 +91,20 @@ class CatalogoController {
                     $valorTotal += $product['price'] * $product['quantity'];
                 }
         
-                // Remover la última coma y espacio
                 $pedido = rtrim($pedido, ', ');
 
-                // Instanciar el modelo y guardar el pedido
                 $catalogo = new Catalogo();
                 $result = $catalogo->guardarPedido($pedido, $valorTotal);
 
                 if ($result) {
-                    // Si la inserción fue exitosa, vaciar el carrito
                     $_SESSION['cart'] = [];
-                    $_SESSION['cart_count'] = 0; // Resetear el contador de productos del carrito
-        
-                    // Redirigir de nuevo al carrito para recargar la página
+                    $_SESSION['cart_count'] = 0; 
+                    
+                    $_SESSION['suit'] = true; 
                     header('Location: views/carrito.php');
                     exit();
+
+
                 } else {
                     echo "Error al guardar el pedido.";
                 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Obtener el número de productos en el carrito
+// Este es el contador de productos que van al carrito
 $cartCount = isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0;
 
 require_once __DIR__ . '/../models/producto.php';
@@ -68,6 +68,7 @@ require_once __DIR__ . '/../models/conexion.php';
         <div style="display: flex;align-items: center;gap: 20px;">
   <a href="carrito.php">
     <img src="../assets/Pictures/carrito-de-compras.png" alt="Carrito de compras" class="logocar">
+    <!-- Aqui muestro el contador de productos en el carrito -->
     <span id="cuenta-carrito"><?php echo $cartCount; ?></span>
   </a>
   <a class="d-flex ms-auto" href="">Inicia sesion</a>
@@ -138,10 +139,7 @@ require_once __DIR__ . '/../models/conexion.php';
         </div>
         <div class="row g-5 container mx-auto text-center product">
         <?php
-        // $_SESSION = [];
-
-        // // Destruir la sesión
-        // session_destroy();
+        // Un bucle en donde se genera producto por producro
         $productos = Producto::obtenerProductos($conn);
             foreach ($productos as $producto) {
               echo '<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">

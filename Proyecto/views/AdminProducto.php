@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,12 +6,16 @@
     <title>Gestión de Productos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         body {
-            background-color: beige; /* Gris claro */
+            background-color: beige; 
         }
     </style>
 </head>
+<?php
+
+?>
 <body>
     <div class="container mt-5">
     <h1 class="text-center my-4 bg-primary text-white border border-dark p-3 " style="border-radius: 30px;">Productos en catálogo</h1>
@@ -31,11 +32,39 @@
                 </tr>
             </thead>
             <tbody>
+<!-- con este codigo muestra el sweetalert de que se elimino el producto -->
+        <?php
+                
+            session_start();
+ 
+            if (isset($_SESSION['suit3']) && $_SESSION['suit3'] === true){
+                echo '<script>
+                swal({
+                    title: "¡Producto creado con exito!",
+                    text: "Tu producto se ha creado en el catalogo.",
+                    icon: "success",
+                    button: "Genial"
+                    });
+                </script>';
+            unset($_SESSION['suit3']);         
+            }
+
+            if (isset($_SESSION['suit2']) && $_SESSION['suit2'] === true){
+                    echo '<script>
+                    swal({
+                      title: "¡Producto Eliminado con exito!",
+                      text: "Tu producto se ha eliminado del catalogo.",
+                      icon: "warning",
+                      button: "Super"
+                    });
+                  </script>';
+                unset($_SESSION['suit2']);         
+                }
+                ?>
                 <?php
                 require_once __DIR__ . '/../models/producto.php';
 
                 $productos = Producto::obtenerProductos($conn);
-
                 foreach ($productos as $producto) {
                     echo '<tr>
                         <td class="text-center align-middle">' . htmlspecialchars($producto['Nombre_P']) . '</td>
@@ -44,7 +73,7 @@
                         <td class="text-center align-middle">' . htmlspecialchars($producto['Cantidad']) . '</td>
                         <td class="text-center align-middle"><img src="' . htmlspecialchars($producto['image']) . '" alt="Imagen Producto 1" class="img-thumbnail" style="width: 100px;"></td>
                         <td class="text-center align-middle"><button class="btn btn-warning">Actualizar</button></td>
-                        <td class="d-flex justify-content-center align-items-center" style="height: 100px;"><form action    ="..\index.php?controller=producto&action=eliminar" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($producto['ID_Producto']) . '"><button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+                        <td class="d-flex justify-content-center align-items-center" style="height: 100px;"><form action="..\index.php?controller=producto&action=eliminar" method="POST"><input type="hidden" name="id" value="' . htmlspecialchars($producto['ID_Producto']) . '"><button type="submit" class="btn btn-danger">Eliminar</button></form></td>
                     </tr>';
                 }
                 

@@ -18,12 +18,12 @@ class Producto {
     }
 
     public function guardar() {
-        global $conn; // Asumiendo que $conn está disponible globalmente
+        global $conn; 
 
         $stmt = $conn->prepare("INSERT INTO productos (Nombre_P,Precio_p,Cantidad,descripcion,image) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("siiss", $this->name, $this->price, $this->quantity, $this->description, $this->image);
         
-        return $stmt->execute(); // Retorna true si la ejecución fue exitosa
+        return $stmt->execute(); // Retorna true 
     }
 
 
@@ -36,17 +36,16 @@ class Producto {
         $productos = [];
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $productos[] = $row; // Añadir cada fila al array
+                $productos[] = $row; // recuerda bro que esto es para Añadir cada fila al array
             }
         }
 
-        return $productos; // Devolver un array asociativo de productos
+        return $productos; 
     }
 
     public static function eliminarproduc($id) {
-        global $conn; // Asumiendo que $conn está disponible globalmente
+        global $conn; 
 
-        // Consulta para eliminar el producto
         $stmt = $conn->prepare("DELETE FROM productos WHERE ID_Producto = ?");
         $stmt->bind_param("i", $id); // "i" indica que es un entero
         $stmt->execute();
@@ -57,7 +56,6 @@ class Producto {
             echo "Error al eliminar el producto.";
         }
 
-        // Cerrar conexiones
         $stmt->close();
         $conn->close();
     }

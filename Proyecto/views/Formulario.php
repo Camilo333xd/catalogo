@@ -9,14 +9,14 @@
           <style>
         body {
             background-image: url('../assets/Pictures/background.jpg');
-            background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            background-position: center center; /* Centra la imagen */
-            background-attachment: fixed; /* Hace que la imagen permanezca fija cuando se hace scroll */
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center center;
+            background-attachment: fixed; 
         }
 
         .translucent-form {
-            background-color: rgba(255, 255, 255, 0.8); /* Color de fondo blanco con 80% de opacidad */
+            background-color: rgba(255, 255, 255, 0.8); 
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
@@ -30,7 +30,7 @@
                 <h1 class="my-2">Agregar Nuevo Producto</h1>
             </div>
             <div class="card-body">
-                <form action="..\index.php?controller=producto&action=guardar" method="POST" enctype="multipart/form-data" >
+                <form action="..\index.php?controller=producto&action=guardarProducto" method="POST" enctype="multipart/form-data" >
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre del Producto</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -54,6 +54,7 @@
                         <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                     </div>
                     <div class="text-center">
+                        <a href="AdminProducto.php" class="btn btn-warning btn-lg">Volver</a>
                         <button type="submit" class="btn btn-success btn-lg">Agregar Producto</button>
                     </div>
                 </form>

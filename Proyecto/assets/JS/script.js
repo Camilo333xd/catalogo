@@ -3,9 +3,9 @@ $(document).ready(function(){
       event.preventDefault();  // evita que se envie el foprmulario y recargue la pag
       
       $.ajax({
-        url: '../index.php?controller=catalogo&action=AñadirCarrito',  //
-        type: 'POST',  // 
-        data: $(this).serialize(),  // Serializar datos
+        url: '../index.php?controller=catalogo&action=AñadirCarrito', 
+        type: 'POST',  
+        data: $(this).serialize(),  
         success: function(response){
           console.log(response);
           // Parsear la respuesta JSON

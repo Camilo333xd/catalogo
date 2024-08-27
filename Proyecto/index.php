@@ -29,18 +29,8 @@ switch ($controller) {
     default:
         echo "Controlador no válido.";
         break;
-    
-    // case 'catalogo':
-    //     $productoController = new ProductoController();
-    //     if (method_exists($productoController, $action)) {
-    //         $productoController->$action();
-    //     } else {
-    //         echo "Acción no válida para el controlador producto.";
-    //     }
-    //     break;
-    
 }
 
-// ?>
+ ?>
 
 

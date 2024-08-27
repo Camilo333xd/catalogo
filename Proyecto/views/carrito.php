@@ -1,7 +1,6 @@
 <?php
 session_start();
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-// session_destroy()
 
 ?>
 <!DOCTYPE html>
@@ -21,16 +20,9 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <style>
-    .product-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .product-info img {
-        max-width: 100px;
-        height: auto;
-    }
+
 
     body {
       background-image: url(../assets/Pictures/fondo.jpg);
@@ -38,7 +30,6 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
   </style>
 </head>
-
 <body>
   <header class="navbar navbar-expand-sm fondoHeader">
     <div class="container-fluid">
@@ -78,7 +69,20 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
   </header>
   <h1 class="my-4 text-center btn-success">Carrito de Reservas</h1>
 <div id="cart" class="container">
-    <?php
+
+  <?php  if (isset($_SESSION['suit']) && $_SESSION['suit'] === true) {
+    echo '<script>
+            swal({
+              title: "¡Reserva exitosa!",
+              text: "Tu reserva ha sido guardada correctamente.",
+              icon: "success",
+              button: "Aceptar"
+            });
+          </script>';
+        unset($_SESSION['suit']); 
+    }
+    ?>
+  <?php
     if (empty($cart)) {
         echo '<div class="alert alert-warning text-center">El carrito está vacío.</div>';
     } else {
@@ -112,5 +116,8 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 </div>
 
 <script src="..\assets\JS\cart.js"></script>
+<?php
+  // session_destroy()
+?>
 </body>
 </html>

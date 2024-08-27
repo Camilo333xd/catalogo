@@ -46,6 +46,13 @@ header{
     font-size: 40px;
 }
 
-/*Login*/
-
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.product-info img {
+    max-width: 100px;
+    height: auto;
+}
 
